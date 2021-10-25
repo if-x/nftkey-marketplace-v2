@@ -1,0 +1,66 @@
+{
+  "name": "nftkey-marketplace-v2",
+  "version": "1.0.0",
+  "description": "NFTKEY Marketplace smart contract",
+  "main": "truffle-config.js",
+  "keywords": [],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "compile": "truffle compile",
+    "compile-ts": "tsc -p ./tsconfig.migrate.json --outDir ./migrations",
+    "etherscan-verify": "truffle run verify NFTKEYMarketplaceV2",
+    "etherscan-verify:bsc": "yarn etherscan-verify --network bsc",
+    "etherscan-verify:bsctestnet": "yarn etherscan-verify --network bsctestnet",
+    "etherscan-verify:main": "yarn etherscan-verify --network main",
+    "etherscan-verify:ropsten": "yarn etherscan-verify --network ropsten",
+    "generate-types": "typechain --target=truffle-v5 'build/contracts/*.json'",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "npm run lint -- --fix",
+    "migrate": "yarn compile-ts && truffle migrate",
+    "migrate:bsc": "yarn migrate --network bsc",
+    "migrate:bsctestnet": "yarn migrate --network bsctestnet",
+    "migrate:main": "yarn migrate --network main",
+    "migrate:ropsten": "yarn migrate --network ropsten",
+    "postinstall": "yarn compile && yarn generate-types",
+    "prettier": "prettier --write 'contracts/**/*.sol'",
+    "start-server": "node server.js",
+    "test": "yarn compile-ts && truffle test",
+    "test:ropsten": "yarn test --network ropsten"
+  },
+  "author": "If.x",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@openzeppelin/contracts": "4.3.2"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "1.5.1",
+    "@typechain/truffle-v5": "^5.1.0",
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "fs-extra": "^10.0.0",
+    "ganache-cli": "^6.12.2",
+    "prettier": "^2.4.1",
+    "prettier-plugin-solidity": "1.0.0-beta.18",
+    "truffle": "^5.4.16",
+    "truffle-flattener": "^1.5.0",
+    "truffle-plugin-verify": "^0.5.15",
+    "ts-node": "^10.4.0",
+    "typechain": "^5.2.0",
+    "typescript": "^4.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/if-x/nftkey-marketplace-v2"
+  }
+}
