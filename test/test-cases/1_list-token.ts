@@ -49,7 +49,7 @@ export const testListToken = async (accounts: Truffle.Accounts) => {
         getUnixTimeAfterDays(2),
         { from: accounts[1] }
       ),
-      "This token is not allowed to transfer by this contract",
+      "Listing is not valid",
       "This token is not allowed to transfer by this contract"
     );
   });

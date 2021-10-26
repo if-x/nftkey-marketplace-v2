@@ -10,9 +10,6 @@ interface INFTKEYMarketplaceRoyalty {
         address setBy;
     }
 
-    // Default royalty
-    // Maximum royalty
-
     // Who can set: ERC721 owner and NFTKEY owner
     event SetRoyalty(
         address indexed erc721Address,

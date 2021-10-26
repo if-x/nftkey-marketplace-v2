@@ -8,7 +8,7 @@ import "./interface/INFTKEYMarketplaceRoyalty.sol";
 
 contract NFTKEYMarketplaceRoyalty is INFTKEYMarketplaceRoyalty, Ownable {
     uint256 public defaultRoyaltyFraction = 20; // By the factor of 1000, 2%
-    uint256 public royaltyUpperLimit = 100; // By the factor of 1000, 10%
+    uint256 public royaltyUpperLimit = 80; // By the factor of 1000, 8%
 
     mapping(address => ERC721CollectionRoyalty) private _collectionRoyalty;
 
@@ -37,19 +37,24 @@ contract NFTKEYMarketplaceRoyalty is INFTKEYMarketplaceRoyalty, Ownable {
         address erc721Owner = _erc721Owner(erc721Address);
         if (erc721Owner != address(0)) {
             return
-                ERC721CollectionRoyalty(
-                    erc721Owner,
-                    defaultRoyaltyFraction,
-                    address(0)
-                );
+                ERC721CollectionRoyalty({
+                    recipient: erc721Owner,
+                    feeFraction: defaultRoyaltyFraction,
+                    setBy: address(0)
+                });
         }
 
-        return ERC721CollectionRoyalty(address(0), 0, address(0));
+        return
+            ERC721CollectionRoyalty({
+                recipient: address(0),
+                feeFraction: 0,
+                setBy: address(0)
+            });
     }
 
     function setRoyalty(
         address erc721Address,
-        address royaltyRecipient,
+        address newRecipient,
         uint256 feeFraction
     ) external override {
         require(
@@ -57,24 +62,50 @@ contract NFTKEYMarketplaceRoyalty is INFTKEYMarketplaceRoyalty, Ownable {
             "Please set the royalty percentange below allowed range"
         );
 
-        address authorisedAddress = royalty(erc721Address).recipient;
+        require(
+            msg.sender == royalty(erc721Address).recipient,
+            "Only ERC721 royalty recipient is allowed to set Royalty"
+        );
 
-        if (authorisedAddress == address(0)) {
-            authorisedAddress = owner();
-        }
+        _collectionRoyalty[erc721Address] = ERC721CollectionRoyalty({
+            recipient: newRecipient,
+            feeFraction: feeFraction,
+            setBy: msg.sender
+        });
+
+        emit SetRoyalty({
+            erc721Address: erc721Address,
+            recipient: newRecipient,
+            feeFraction: feeFraction
+        });
+    }
+
+    function setRoyaltyForCollection(
+        address erc721Address,
+        address newRecipient,
+        uint256 feeFraction
+    ) external onlyOwner {
+        require(
+            feeFraction <= royaltyUpperLimit,
+            "Please set the royalty percentange below allowed range"
+        );
 
         require(
-            msg.sender == authorisedAddress,
-            "Only ERC721 contract owner or NFTKEY Marketplace owner is allowed to set Royalty"
+            royalty(erc721Address).setBy == address(0),
+            "Collection royalty recipient already set"
         );
 
-        _collectionRoyalty[erc721Address] = ERC721CollectionRoyalty(
-            royaltyRecipient,
-            feeFraction,
-            msg.sender
-        );
+        _collectionRoyalty[erc721Address] = ERC721CollectionRoyalty({
+            recipient: newRecipient,
+            feeFraction: feeFraction,
+            setBy: msg.sender
+        });
 
-        emit SetRoyalty(erc721Address, royaltyRecipient, feeFraction);
+        emit SetRoyalty({
+            erc721Address: erc721Address,
+            recipient: newRecipient,
+            feeFraction: feeFraction
+        });
     }
 
     function updateRoyaltyUpperLimit(uint256 _newUpperLimit)

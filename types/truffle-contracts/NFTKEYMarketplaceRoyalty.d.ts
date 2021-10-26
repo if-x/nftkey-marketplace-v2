@@ -92,25 +92,52 @@ export interface NFTKEYMarketplaceRoyaltyInstance
   setRoyalty: {
     (
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  setRoyaltyForCollection: {
+    (
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      erc721Address: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -190,25 +217,52 @@ export interface NFTKEYMarketplaceRoyaltyInstance
     setRoyalty: {
       (
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    setRoyaltyForCollection: {
+      (
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        erc721Address: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;

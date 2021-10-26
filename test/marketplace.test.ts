@@ -6,7 +6,6 @@ import { testBuyToken } from "./test-cases/5_buy-token";
 import { testAcceptBid } from "./test-cases/6_accept-bid";
 import { testTransferToken } from "./test-cases/7_transfer-token";
 
-// TODO: test royalty
 contract("NFTKEYMarketPlaceV2", (accounts) => {
   // List
   describe("List token", async () => testListToken(accounts));

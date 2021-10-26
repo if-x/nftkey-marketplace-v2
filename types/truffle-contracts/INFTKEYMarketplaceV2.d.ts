@@ -106,83 +106,6 @@ type AllEvents =
 
 export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   /**
-   * get current listing of a token
-   * @param tokenId erc721 token Id
-   */
-  getTokenListing(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
-
-  /**
-   * get current valid listings by size
-   * @param from index to start
-   * @param size size to query
-   */
-  getTokenListings(
-    erc721Address: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]>;
-
-  /**
-   * get bidder's bid on a token
-   * @param bidder address of a bidder
-   * @param tokenId erc721 token Id
-   */
-  getBidderTokenBid(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    bidder: string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-  /**
-   * get all valid bids of a token
-   * @param tokenId erc721 token Id
-   */
-  getTokenBids(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
-
-  /**
-   * get highest bid of a token
-   * @param tokenId erc721 token Id
-   */
-  getTokenHighestBid(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-  /**
-   * get current highest bids
-   * @param from index to start
-   * @param size size to query
-   */
-  getTokenHighestBids(
-    erc721Address: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
-
-  /**
-   * get all bids of a bidder address
-   */
-  getBidderBids(
-    erc721Address: string,
-    bidder: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
-
-  /**
    * List token for sale
    * @param expireTimestamp when would this listing expire
    * @param tokenId erc721 token Id
@@ -275,36 +198,36 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
 
   /**
    * Enter bid for token
-   * @param bidPrice price in payment token
    * @param expireTimestamp when would this bid expire
    * @param tokenId erc721 token Id
+   * @param value price in payment token
    */
   enterBidForToken: {
     (
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -380,6 +303,99 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   isTradingEnabled(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
 
   /**
+   * get current listing of a token
+   * @param tokenId erc721 token Id
+   */
+  getTokenListing(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
+
+  /**
+   * get count of listings
+   */
+  numTokenListings(
+    erc721Address: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  /**
+   * get current valid listings by size
+   * @param from index to start
+   * @param size size to query
+   */
+  getTokenListings(
+    erc721Address: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]>;
+
+  /**
+   * get bidder's bid on a token
+   * @param bidder address of a bidder
+   * @param tokenId erc721 token Id
+   */
+  getBidderTokenBid(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    bidder: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+  /**
+   * get all valid bids of a token
+   * @param tokenId erc721 token Id
+   */
+  getTokenBids(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
+
+  /**
+   * get count of tokens with bid(s)
+   */
+  numTokenWithBids(
+    erc721Address: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  /**
+   * get highest bid of a token
+   * @param tokenId erc721 token Id
+   */
+  getTokenHighestBid(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+  /**
+   * get current highest bids
+   * @param from index to start
+   * @param size size to query
+   */
+  getTokenHighestBids(
+    erc721Address: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
+
+  /**
+   * get all bids of a bidder address
+   */
+  getBidderBids(
+    erc721Address: string,
+    bidder: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
+
+  /**
    * Surface minimum listing and bid time range
    */
   actionTimeOutRangeMin(txDetails?: Truffle.TransactionDetails): Promise<BN>;
@@ -395,91 +411,6 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   serviceFee(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   methods: {
-    /**
-     * get current listing of a token
-     * @param tokenId erc721 token Id
-     */
-    getTokenListing(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
-
-    /**
-     * get current valid listings by size
-     * @param from index to start
-     * @param size size to query
-     */
-    getTokenListings(
-      erc721Address: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * get bidder's bid on a token
-     * @param bidder address of a bidder
-     * @param tokenId erc721 token Id
-     */
-    getBidderTokenBid(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      bidder: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-    /**
-     * get all valid bids of a token
-     * @param tokenId erc721 token Id
-     */
-    getTokenBids(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * get highest bid of a token
-     * @param tokenId erc721 token Id
-     */
-    getTokenHighestBid(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-    /**
-     * get current highest bids
-     * @param from index to start
-     * @param size size to query
-     */
-    getTokenHighestBids(
-      erc721Address: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * get all bids of a bidder address
-     */
-    getBidderBids(
-      erc721Address: string,
-      bidder: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
-
     /**
      * List token for sale
      * @param expireTimestamp when would this listing expire
@@ -573,36 +504,36 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
 
     /**
      * Enter bid for token
-     * @param bidPrice price in payment token
      * @param expireTimestamp when would this bid expire
      * @param tokenId erc721 token Id
+     * @param value price in payment token
      */
     enterBidForToken: {
       (
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
@@ -676,6 +607,107 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
      * Show if listing and bid are enabled
      */
     isTradingEnabled(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
+
+    /**
+     * get current listing of a token
+     * @param tokenId erc721 token Id
+     */
+    getTokenListing(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
+
+    /**
+     * get count of listings
+     */
+    numTokenListings(
+      erc721Address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    /**
+     * get current valid listings by size
+     * @param from index to start
+     * @param size size to query
+     */
+    getTokenListings(
+      erc721Address: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * get bidder's bid on a token
+     * @param bidder address of a bidder
+     * @param tokenId erc721 token Id
+     */
+    getBidderTokenBid(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      bidder: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+    /**
+     * get all valid bids of a token
+     * @param tokenId erc721 token Id
+     */
+    getTokenBids(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * get count of tokens with bid(s)
+     */
+    numTokenWithBids(
+      erc721Address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    /**
+     * get highest bid of a token
+     * @param tokenId erc721 token Id
+     */
+    getTokenHighestBid(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+    /**
+     * get current highest bids
+     * @param from index to start
+     * @param size size to query
+     */
+    getTokenHighestBids(
+      erc721Address: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * get all bids of a bidder address
+     */
+    getBidderBids(
+      erc721Address: string,
+      bidder: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
 
     /**
      * Surface minimum listing and bid time range

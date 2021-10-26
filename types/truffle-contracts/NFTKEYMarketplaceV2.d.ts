@@ -163,25 +163,52 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   setRoyalty: {
     (
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       erc721Address: string,
-      royaltyRecipient: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<number>;
+  };
+
+  setRoyaltyForCollection: {
+    (
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<Truffle.TransactionResponse<AllEvents>>;
+    call(
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<void>;
+    sendTransaction(
+      erc721Address: string,
+      newRecipient: string,
+      feeFraction: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<string>;
+    estimateGas(
+      erc721Address: string,
+      newRecipient: string,
       feeFraction: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -226,74 +253,6 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
   };
-
-  /**
-   * See {INFTKEYMarketplaceV2-getTokenListing}.
-   */
-  getTokenListing(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
-
-  /**
-   * See {INFTKEYMarketplaceV2-getTokenListings}.
-   */
-  getTokenListings(
-    erc721Address: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]>;
-
-  /**
-   * See {INFTKEYMarketplaceV2-getBidderTokenBid}.
-   */
-  getBidderTokenBid(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    bidder: string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-  /**
-   * See {INFTKEYMarketplaceV2-getTokenBids}.
-   */
-  getTokenBids(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
-
-  /**
-   * See {INFTKEYMarketplaceV2-getTokenHighestBid}.
-   */
-  getTokenHighestBid(
-    erc721Address: string,
-    tokenId: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-  /**
-   * See {INFTKEYMarketplaceV2-getTokenHighestBids}.
-   */
-  getTokenHighestBids(
-    erc721Address: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
-
-  /**
-   * get all bids of a bidder address
-   */
-  getBidderBids(
-    erc721Address: string,
-    bidder: string,
-    from: number | BN | string,
-    size: number | BN | string,
-    txDetails?: Truffle.TransactionDetails
-  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
 
   /**
    * See {INFTKEYMarketplaceV2-listToken}. People can only list if listing is allowed The timestamp set needs to be in the allowed range Only token owner can list token Price must be higher than 0 This contract must be approved to transfer this token
@@ -382,34 +341,34 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   };
 
   /**
-   * See {INFTKEYMarketplaceV2-enterBidForToken}. People can only enter bid if bid is allowed The timestamp set needs to be in the allowed range bid price > 0 must not be token owner must allow this contract to spend enough payment token
+   * See {INFTKEYMarketplaceV2-enterBidForToken}. People can only enter bid if bid is valid
    */
   enterBidForToken: {
     (
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<Truffle.TransactionResponse<AllEvents>>;
     call(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<void>;
     sendTransaction(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<string>;
     estimateGas(
       erc721Address: string,
       tokenId: number | BN | string,
-      bidPrice: number | BN | string,
+      value: number | BN | string,
       expireTimestamp: number | BN | string,
       txDetails?: Truffle.TransactionDetails
     ): Promise<number>;
@@ -442,7 +401,7 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   };
 
   /**
-   * See {INFTKEYMarketplaceV2-acceptBidForToken}. Must be owner of this token Must have approved this contract to transfer token Must have a valid existing bid that matches the bidder address
+   * See {INFTKEYMarketplaceV2-acceptBidForToken}. Must be owner of this token Must have approved this contract to transfer token Must have a valid existing bid that matches
    */
   acceptBidForToken: {
     (
@@ -479,6 +438,90 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
    * See {INFTKEYMarketplaceV2-isTradingEnabled}.
    */
   isTradingEnabled(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getTokenListing}.
+   */
+  getTokenListing(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-numTokenListings}.
+   */
+  numTokenListings(
+    erc721Address: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getTokenListings}.
+   */
+  getTokenListings(
+    erc721Address: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getBidderTokenBid}.
+   */
+  getBidderTokenBid(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    bidder: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getTokenBids}.
+   */
+  getTokenBids(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getTokenHighestBid}.
+   */
+  getTokenHighestBid(
+    erc721Address: string,
+    tokenId: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-numTokenWithBids}.
+   */
+  numTokenWithBids(
+    erc721Address: string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<BN>;
+
+  /**
+   * See {INFTKEYMarketplaceV2-getTokenHighestBids}.
+   */
+  getTokenHighestBids(
+    erc721Address: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
+
+  /**
+   * get all bids of a bidder address
+   */
+  getBidderBids(
+    erc721Address: string,
+    bidder: string,
+    from: number | BN | string,
+    size: number | BN | string,
+    txDetails?: Truffle.TransactionDetails
+  ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]>;
 
   /**
    * Enable to disable Bids and Listing
@@ -617,25 +660,52 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
     setRoyalty: {
       (
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         erc721Address: string,
-        royaltyRecipient: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<number>;
+    };
+
+    setRoyaltyForCollection: {
+      (
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<Truffle.TransactionResponse<AllEvents>>;
+      call(
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<void>;
+      sendTransaction(
+        erc721Address: string,
+        newRecipient: string,
+        feeFraction: number | BN | string,
+        txDetails?: Truffle.TransactionDetails
+      ): Promise<string>;
+      estimateGas(
+        erc721Address: string,
+        newRecipient: string,
         feeFraction: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
@@ -680,82 +750,6 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
     };
-
-    /**
-     * See {INFTKEYMarketplaceV2-getTokenListing}.
-     */
-    getTokenListing(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
-
-    /**
-     * See {INFTKEYMarketplaceV2-getTokenListings}.
-     */
-    getTokenListings(
-      erc721Address: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * See {INFTKEYMarketplaceV2-getBidderTokenBid}.
-     */
-    getBidderTokenBid(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      bidder: string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-    /**
-     * See {INFTKEYMarketplaceV2-getTokenBids}.
-     */
-    getTokenBids(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * See {INFTKEYMarketplaceV2-getTokenHighestBid}.
-     */
-    getTokenHighestBid(
-      erc721Address: string,
-      tokenId: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
-
-    /**
-     * See {INFTKEYMarketplaceV2-getTokenHighestBids}.
-     */
-    getTokenHighestBids(
-      erc721Address: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
-
-    /**
-     * get all bids of a bidder address
-     */
-    getBidderBids(
-      erc721Address: string,
-      bidder: string,
-      from: number | BN | string,
-      size: number | BN | string,
-      txDetails?: Truffle.TransactionDetails
-    ): Promise<
-      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
-    >;
 
     /**
      * See {INFTKEYMarketplaceV2-listToken}. People can only list if listing is allowed The timestamp set needs to be in the allowed range Only token owner can list token Price must be higher than 0 This contract must be approved to transfer this token
@@ -844,34 +838,34 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
     };
 
     /**
-     * See {INFTKEYMarketplaceV2-enterBidForToken}. People can only enter bid if bid is allowed The timestamp set needs to be in the allowed range bid price > 0 must not be token owner must allow this contract to spend enough payment token
+     * See {INFTKEYMarketplaceV2-enterBidForToken}. People can only enter bid if bid is valid
      */
     enterBidForToken: {
       (
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<Truffle.TransactionResponse<AllEvents>>;
       call(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<void>;
       sendTransaction(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<string>;
       estimateGas(
         erc721Address: string,
         tokenId: number | BN | string,
-        bidPrice: number | BN | string,
+        value: number | BN | string,
         expireTimestamp: number | BN | string,
         txDetails?: Truffle.TransactionDetails
       ): Promise<number>;
@@ -904,7 +898,7 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
     };
 
     /**
-     * See {INFTKEYMarketplaceV2-acceptBidForToken}. Must be owner of this token Must have approved this contract to transfer token Must have a valid existing bid that matches the bidder address
+     * See {INFTKEYMarketplaceV2-acceptBidForToken}. Must be owner of this token Must have approved this contract to transfer token Must have a valid existing bid that matches
      */
     acceptBidForToken: {
       (
@@ -941,6 +935,98 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
      * See {INFTKEYMarketplaceV2-isTradingEnabled}.
      */
     isTradingEnabled(txDetails?: Truffle.TransactionDetails): Promise<boolean>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getTokenListing}.
+     */
+    getTokenListing(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; seller: string; expireTimestamp: BN }>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-numTokenListings}.
+     */
+    numTokenListings(
+      erc721Address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getTokenListings}.
+     */
+    getTokenListings(
+      erc721Address: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; seller: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getBidderTokenBid}.
+     */
+    getBidderTokenBid(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      bidder: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getTokenBids}.
+     */
+    getTokenBids(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getTokenHighestBid}.
+     */
+    getTokenHighestBid(
+      erc721Address: string,
+      tokenId: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<{ tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-numTokenWithBids}.
+     */
+    numTokenWithBids(
+      erc721Address: string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<BN>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-getTokenHighestBids}.
+     */
+    getTokenHighestBids(
+      erc721Address: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
+
+    /**
+     * get all bids of a bidder address
+     */
+    getBidderBids(
+      erc721Address: string,
+      bidder: string,
+      from: number | BN | string,
+      size: number | BN | string,
+      txDetails?: Truffle.TransactionDetails
+    ): Promise<
+      { tokenId: BN; value: BN; bidder: string; expireTimestamp: BN }[]
+    >;
 
     /**
      * Enable to disable Bids and Listing

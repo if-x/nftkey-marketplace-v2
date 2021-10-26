@@ -28,11 +28,6 @@ export const testBuyToken = async (accounts: Truffle.Accounts) => {
       tokenToBuy.tokenId
     );
 
-    const serviceFee = await marketplaceInstance.serviceFee();
-    const royalty = await marketplaceInstance.royalty(erc721.address);
-
-    console.log("tokenToBuy", tokenToBuy);
-
     const receipt = await marketplaceInstance.buyToken(
       erc721.address,
       tokenToBuy.tokenId,

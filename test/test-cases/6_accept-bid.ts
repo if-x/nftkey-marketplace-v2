@@ -21,17 +21,18 @@ export const testAcceptBid = async (accounts: Truffle.Accounts) => {
   });
 
   it("Should accept bid", async () => {
-    const tokenOwner = accounts[4]; // The owner after buy token
     const highestBid = await marketplaceInstance.getTokenHighestBid(
       erc721.address,
       0
     );
 
+    const tokenOwner = await erc721.ownerOf(highestBid.tokenId);
+
     await erc721.setApprovalForAll(marketplaceInstance.address, true, {
       from: tokenOwner,
     });
 
-    const balanceBefore = await paymentToken.balanceOf(accounts[1]);
+    const balanceBefore = await paymentToken.balanceOf(tokenOwner);
 
     const receipt = await marketplaceInstance.acceptBidForToken(
       erc721.address,
