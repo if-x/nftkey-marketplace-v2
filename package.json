@@ -21,6 +21,7 @@
     "migrate": "yarn compile-ts && truffle migrate",
     "migrate:bsc": "yarn migrate --network bsc",
     "migrate:bsctestnet": "yarn migrate --network bsctestnet",
+    "migrate:ftm": "yarn migrate --network ftm",
     "migrate:main": "yarn migrate --network main",
     "migrate:ropsten": "yarn migrate --network ropsten",
     "postinstall": "yarn compile && yarn generate-types",

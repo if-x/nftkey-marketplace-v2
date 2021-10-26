@@ -47,6 +47,14 @@ module.exports = {
       confirmations: 2,
       from: fromAddress,
     },
+    ftm: {
+      provider: () => new HDWalletProvider(mnemonic, `https://rpc.ftm.tools`),
+      network_id: 250,
+      // gas: 5500000,
+      // gasPrice: 5000000000,
+      confirmations: 2,
+      from: fromAddress,
+    },
     ropsten: {
       provider: () =>
         new HDWalletProvider(
