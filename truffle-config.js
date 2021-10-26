@@ -34,7 +34,6 @@ module.exports = {
           `https://data-seed-prebsc-2-s1.binance.org:8545/`
         ),
       network_id: 97,
-      // gas: 5500000,
       confirmations: 2,
       from: fromAddress,
     },
@@ -42,16 +41,19 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(mnemonic, `https://bsc-dataseed.binance.org/`),
       network_id: 56,
-      // gas: 5500000,
-      gasPrice: 5000000000,
       confirmations: 2,
       from: fromAddress,
     },
     ftm: {
       provider: () => new HDWalletProvider(mnemonic, `https://rpc.ftm.tools`),
       network_id: 250,
-      // gas: 5500000,
-      // gasPrice: 5000000000,
+      confirmations: 2,
+      from: fromAddress,
+    },
+    avax: {
+      provider: () =>
+        new HDWalletProvider(mnemonic, `https://api.avax.network/ext/bc/C/rpc`),
+      network_id: 43114,
       confirmations: 2,
       from: fromAddress,
     },
@@ -62,7 +64,6 @@ module.exports = {
           `https://ropsten.infura.io/v3/${infuraKey}`
         ),
       network_id: 3,
-      // gas: 5500000,
       confirmations: 2,
       from: fromAddress,
     },
@@ -73,8 +74,6 @@ module.exports = {
           `https://mainnet.infura.io/v3/${infuraKey}`
         ),
       network_id: 1,
-      // gas: 6000000,
-      gasPrice: 30000000000,
       confirmations: 2,
       from: fromAddress,
     },
@@ -94,7 +93,7 @@ module.exports = {
           enabled: true,
           runs: 999999,
         },
-        evmVersion: "istanbul",
+        evmVersion: "default",
       },
     },
   },

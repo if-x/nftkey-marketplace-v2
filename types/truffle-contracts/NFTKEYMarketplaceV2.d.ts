@@ -555,6 +555,11 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   actionTimeOutRangeMax(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   /**
+   * See {INFTKEYMarketplaceV2-paymentToken}.
+   */
+  paymentToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+  /**
    * Change minimum listing and bid time range
    */
   changeMinActionTimeLimit: {
@@ -1058,6 +1063,11 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
      * See {INFTKEYMarketplaceV2-actionTimeOutRangeMax}.
      */
     actionTimeOutRangeMax(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    /**
+     * See {INFTKEYMarketplaceV2-paymentToken}.
+     */
+    paymentToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
     /**
      * Change minimum listing and bid time range

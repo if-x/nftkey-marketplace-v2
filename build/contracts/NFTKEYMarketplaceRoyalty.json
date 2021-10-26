@@ -1177,7 +1177,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr__to_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr__to_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2707,7 +2707,7 @@
           }
         ]
       },
-      "contents": "{\n    { }\n    function validator_revert_address(value)\n    {\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_addresst_addresst_uint256(headStart, dataEnd) -> value0, value1, value2\n    {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n        let value_1 := calldataload(add(headStart, 32))\n        validator_revert_address(value_1)\n        value1 := value_1\n        value2 := calldataload(add(headStart, 64))\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_encode_tuple_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr__to_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 96)\n        let _1 := 0xffffffffffffffffffffffffffffffffffffffff\n        mstore(headStart, and(mload(value0), _1))\n        mstore(add(headStart, 0x20), mload(add(value0, 0x20)))\n        mstore(add(headStart, 0x40), and(mload(add(value0, 0x40)), _1))\n    }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := calldataload(headStart)\n    }\n    function abi_encode_tuple_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 32)\n        mstore(add(headStart, 64), \"Ownable: caller is not the owner\")\n        tail := add(headStart, 96)\n    }\n    function abi_encode_tuple_t_stringliteral_fc258370ec079dd326cc22c5397c6d7c583c6dcfb8e0486da07782e9e4e8c1e3__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 54)\n        mstore(add(headStart, 64), \"Please set the royalty percentan\")\n        mstore(add(headStart, 96), \"ge below allowed range\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_b372437347e8811e01381c46c7a97382e5c882d32d97700f8575daf590865e85__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 40)\n        mstore(add(headStart, 64), \"Collection royalty recipient alr\")\n        mstore(add(headStart, 96), \"eady set\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_432cc8904b8a585901e86e9377893c00e5d49eef6d225f55668e7cec756b76b6__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 55)\n        mstore(add(headStart, 64), \"Only ERC721 royalty recipient is\")\n        mstore(add(headStart, 96), \" allowed to set Royalty\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 38)\n        mstore(add(headStart, 64), \"Ownable: new owner is the zero a\")\n        mstore(add(headStart, 96), \"ddress\")\n        tail := add(headStart, 128)\n    }\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := mload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n}",
+      "contents": "{\n    { }\n    function validator_revert_address(value)\n    {\n        if iszero(eq(value, and(value, 0xffffffffffffffffffffffffffffffffffffffff))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_addresst_addresst_uint256(headStart, dataEnd) -> value0, value1, value2\n    {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n        let value_1 := calldataload(add(headStart, 32))\n        validator_revert_address(value_1)\n        value1 := value_1\n        value2 := calldataload(add(headStart, 64))\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := calldataload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n    function abi_encode_tuple_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr__to_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 96)\n        let _1 := 0xffffffffffffffffffffffffffffffffffffffff\n        mstore(headStart, and(mload(value0), _1))\n        mstore(add(headStart, 0x20), mload(add(value0, 0x20)))\n        mstore(add(headStart, 0x40), and(mload(add(value0, 0x40)), _1))\n    }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xffffffffffffffffffffffffffffffffffffffff))\n    }\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        value0 := calldataload(headStart)\n    }\n    function abi_encode_tuple_t_stringliteral_9924ebdf1add33d25d4ef888e16131f0a5687b0580a36c21b5c301a6c462effe__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 32)\n        mstore(add(headStart, 64), \"Ownable: caller is not the owner\")\n        tail := add(headStart, 96)\n    }\n    function abi_encode_tuple_t_stringliteral_fc258370ec079dd326cc22c5397c6d7c583c6dcfb8e0486da07782e9e4e8c1e3__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 54)\n        mstore(add(headStart, 64), \"Please set the royalty percentan\")\n        mstore(add(headStart, 96), \"ge below allowed range\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_b372437347e8811e01381c46c7a97382e5c882d32d97700f8575daf590865e85__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 40)\n        mstore(add(headStart, 64), \"Collection royalty recipient alr\")\n        mstore(add(headStart, 96), \"eady set\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_432cc8904b8a585901e86e9377893c00e5d49eef6d225f55668e7cec756b76b6__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 55)\n        mstore(add(headStart, 64), \"Only ERC721 royalty recipient is\")\n        mstore(add(headStart, 96), \" allowed to set Royalty\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_stringliteral_245f15ff17f551913a7a18385165551503906a406f905ac1c2437281a7cd0cfe__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 38)\n        mstore(add(headStart, 64), \"Ownable: new owner is the zero a\")\n        mstore(add(headStart, 96), \"ddress\")\n        tail := add(headStart, 128)\n    }\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n        let value := mload(headStart)\n        validator_revert_address(value)\n        value0 := value\n    }\n}",
       "id": 25,
       "language": "Yul",
       "name": "#utility.yul"
@@ -2724,7 +2724,7 @@
         2681
       ],
       "INFTKEYMarketplaceRoyalty": [
-        5521
+        5534
       ],
       "NFTKEYMarketplaceRoyalty": [
         3772
@@ -2776,7 +2776,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3773,
-        "sourceUnit": 5522,
+        "sourceUnit": 5535,
         "src": "145:51:19",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2789,7 +2789,7 @@
               "id": 3562,
               "name": "INFTKEYMarketplaceRoyalty",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 5521,
+              "referencedDeclaration": 5534,
               "src": "235:25:19"
             },
             "id": 3563,
@@ -2818,7 +2818,7 @@
           3772,
           103,
           2681,
-          5521
+          5534
         ],
         "name": "NFTKEYMarketplaceRoyalty",
         "nameLocation": "207:24:19",
@@ -2924,7 +2924,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
               "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty)"
             },
             "typeName": {
@@ -2942,7 +2942,7 @@
               "nodeType": "Mapping",
               "src": "426:43:19",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                 "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty)"
               },
               "valueType": {
@@ -2952,13 +2952,13 @@
                   "id": 3573,
                   "name": "ERC721CollectionRoyalty",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 5493,
+                  "referencedDeclaration": 5506,
                   "src": "445:23:19"
                 },
-                "referencedDeclaration": 5493,
+                "referencedDeclaration": 5506,
                 "src": "445:23:19",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                  "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr",
                   "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                 }
               }
@@ -3291,7 +3291,7 @@
           },
           {
             "baseFunctions": [
-              5510
+              5523
             ],
             "body": {
               "id": 3663,
@@ -3319,7 +3319,7 @@
                           "referencedDeclaration": 3576,
                           "src": "944:18:19",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                             "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                           }
                         },
@@ -3343,7 +3343,7 @@
                         "nodeType": "IndexAccess",
                         "src": "944:33:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                          "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                           "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                         }
                       },
@@ -3354,7 +3354,7 @@
                       "lValueRequested": false,
                       "memberName": "setBy",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5492,
+                      "referencedDeclaration": 5505,
                       "src": "944:39:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -3447,7 +3447,7 @@
                             "referencedDeclaration": 3576,
                             "src": "1020:18:19",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                               "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                             }
                           },
@@ -3471,7 +3471,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1020:33:19",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                             "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                           }
                         },
@@ -3775,10 +3775,10 @@
                             "name": "ERC721CollectionRoyalty",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 5493,
+                            "referencedDeclaration": 5506,
                             "src": "1201:23:19",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                              "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                               "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                             }
                           },
@@ -3797,7 +3797,7 @@
                           "src": "1201:183:19",
                           "tryCall": false,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                             "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                           }
                         },
@@ -3968,10 +3968,10 @@
                       "name": "ERC721CollectionRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5493,
+                      "referencedDeclaration": 5506,
                       "src": "1424:23:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                         "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                       }
                     },
@@ -3990,7 +3990,7 @@
                     "src": "1424:145:19",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                     }
                   },
@@ -4066,7 +4066,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                     "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                   },
                   "typeName": {
@@ -4076,13 +4076,13 @@
                       "id": 3609,
                       "name": "ERC721CollectionRoyalty",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 5493,
+                      "referencedDeclaration": 5506,
                       "src": "894:23:19"
                     },
-                    "referencedDeclaration": 5493,
+                    "referencedDeclaration": 5506,
                     "src": "894:23:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                     }
                   },
@@ -4099,7 +4099,7 @@
           },
           {
             "baseFunctions": [
-              5520
+              5533
             ],
             "body": {
               "id": 3709,
@@ -4283,7 +4283,7 @@
                               "referencedDeclaration": 3664,
                               "src": "1905:7:19",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr_$",
+                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr_$",
                                 "typeString": "function (address) view returns (struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory)"
                               }
                             },
@@ -4298,7 +4298,7 @@
                             "src": "1905:22:19",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                               "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                             }
                           },
@@ -4309,7 +4309,7 @@
                           "lValueRequested": false,
                           "memberName": "recipient",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5488,
+                          "referencedDeclaration": 5501,
                           "src": "1905:32:19",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -4399,7 +4399,7 @@
                         "referencedDeclaration": 3576,
                         "src": "2029:18:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                           "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                         }
                       },
@@ -4423,7 +4423,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2029:33:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                       }
                     },
@@ -4501,10 +4501,10 @@
                         "name": "ERC721CollectionRoyalty",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5493,
+                        "referencedDeclaration": 5506,
                         "src": "2065:23:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                           "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                         }
                       },
@@ -4523,13 +4523,13 @@
                       "src": "2065:141:19",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                       }
                     },
                     "src": "2029:177:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                     }
                   },
@@ -4596,7 +4596,7 @@
                       "name": "SetRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5501,
+                      "referencedDeclaration": 5514,
                       "src": "2222:10:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -4899,7 +4899,7 @@
                               "referencedDeclaration": 3664,
                               "src": "2697:7:19",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr_$",
+                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr_$",
                                 "typeString": "function (address) view returns (struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory)"
                               }
                             },
@@ -4914,7 +4914,7 @@
                             "src": "2697:22:19",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                               "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                             }
                           },
@@ -4925,7 +4925,7 @@
                           "lValueRequested": false,
                           "memberName": "setBy",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5492,
+                          "referencedDeclaration": 5505,
                           "src": "2697:28:19",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -5077,7 +5077,7 @@
                         "referencedDeclaration": 3576,
                         "src": "2816:18:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                           "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                         }
                       },
@@ -5101,7 +5101,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2816:33:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                       }
                     },
@@ -5179,10 +5179,10 @@
                         "name": "ERC721CollectionRoyalty",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5493,
+                        "referencedDeclaration": 5506,
                         "src": "2852:23:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                           "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                         }
                       },
@@ -5201,13 +5201,13 @@
                       "src": "2852:141:19",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                       }
                     },
                     "src": "2816:177:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                     }
                   },
@@ -5274,7 +5274,7 @@
                       "name": "SetRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5501,
+                      "referencedDeclaration": 5514,
                       "src": "3009:10:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -5564,7 +5564,7 @@
         2681
       ],
       "INFTKEYMarketplaceRoyalty": [
-        5521
+        5534
       ],
       "NFTKEYMarketplaceRoyalty": [
         3772
@@ -5616,7 +5616,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 3773,
-        "sourceUnit": 5522,
+        "sourceUnit": 5535,
         "src": "145:51:19",
         "symbolAliases": [],
         "unitAlias": ""
@@ -5629,7 +5629,7 @@
               "id": 3562,
               "name": "INFTKEYMarketplaceRoyalty",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 5521,
+              "referencedDeclaration": 5534,
               "src": "235:25:19"
             },
             "id": 3563,
@@ -5658,7 +5658,7 @@
           3772,
           103,
           2681,
-          5521
+          5534
         ],
         "name": "NFTKEYMarketplaceRoyalty",
         "nameLocation": "207:24:19",
@@ -5764,7 +5764,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
               "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty)"
             },
             "typeName": {
@@ -5782,7 +5782,7 @@
               "nodeType": "Mapping",
               "src": "426:43:19",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                 "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty)"
               },
               "valueType": {
@@ -5792,13 +5792,13 @@
                   "id": 3573,
                   "name": "ERC721CollectionRoyalty",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 5493,
+                  "referencedDeclaration": 5506,
                   "src": "445:23:19"
                 },
-                "referencedDeclaration": 5493,
+                "referencedDeclaration": 5506,
                 "src": "445:23:19",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                  "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr",
                   "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                 }
               }
@@ -6131,7 +6131,7 @@
           },
           {
             "baseFunctions": [
-              5510
+              5523
             ],
             "body": {
               "id": 3663,
@@ -6159,7 +6159,7 @@
                           "referencedDeclaration": 3576,
                           "src": "944:18:19",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                             "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                           }
                         },
@@ -6183,7 +6183,7 @@
                         "nodeType": "IndexAccess",
                         "src": "944:33:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                          "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                           "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                         }
                       },
@@ -6194,7 +6194,7 @@
                       "lValueRequested": false,
                       "memberName": "setBy",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5492,
+                      "referencedDeclaration": 5505,
                       "src": "944:39:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -6287,7 +6287,7 @@
                             "referencedDeclaration": 3576,
                             "src": "1020:18:19",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                               "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                             }
                           },
@@ -6311,7 +6311,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1020:33:19",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                             "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                           }
                         },
@@ -6615,10 +6615,10 @@
                             "name": "ERC721CollectionRoyalty",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 5493,
+                            "referencedDeclaration": 5506,
                             "src": "1201:23:19",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                              "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                               "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                             }
                           },
@@ -6637,7 +6637,7 @@
                           "src": "1201:183:19",
                           "tryCall": false,
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                            "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                             "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                           }
                         },
@@ -6808,10 +6808,10 @@
                       "name": "ERC721CollectionRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5493,
+                      "referencedDeclaration": 5506,
                       "src": "1424:23:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                         "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                       }
                     },
@@ -6830,7 +6830,7 @@
                     "src": "1424:145:19",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                     }
                   },
@@ -6906,7 +6906,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                     "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                   },
                   "typeName": {
@@ -6916,13 +6916,13 @@
                       "id": 3609,
                       "name": "ERC721CollectionRoyalty",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 5493,
+                      "referencedDeclaration": 5506,
                       "src": "894:23:19"
                     },
-                    "referencedDeclaration": 5493,
+                    "referencedDeclaration": 5506,
                     "src": "894:23:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
                     }
                   },
@@ -6939,7 +6939,7 @@
           },
           {
             "baseFunctions": [
-              5520
+              5533
             ],
             "body": {
               "id": 3709,
@@ -7123,7 +7123,7 @@
                               "referencedDeclaration": 3664,
                               "src": "1905:7:19",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr_$",
+                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr_$",
                                 "typeString": "function (address) view returns (struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory)"
                               }
                             },
@@ -7138,7 +7138,7 @@
                             "src": "1905:22:19",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                               "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                             }
                           },
@@ -7149,7 +7149,7 @@
                           "lValueRequested": false,
                           "memberName": "recipient",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5488,
+                          "referencedDeclaration": 5501,
                           "src": "1905:32:19",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -7239,7 +7239,7 @@
                         "referencedDeclaration": 3576,
                         "src": "2029:18:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                           "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                         }
                       },
@@ -7263,7 +7263,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2029:33:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                       }
                     },
@@ -7341,10 +7341,10 @@
                         "name": "ERC721CollectionRoyalty",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5493,
+                        "referencedDeclaration": 5506,
                         "src": "2065:23:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                           "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                         }
                       },
@@ -7363,13 +7363,13 @@
                       "src": "2065:141:19",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                       }
                     },
                     "src": "2029:177:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                     }
                   },
@@ -7436,7 +7436,7 @@
                       "name": "SetRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5501,
+                      "referencedDeclaration": 5514,
                       "src": "2222:10:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -7739,7 +7739,7 @@
                               "referencedDeclaration": 3664,
                               "src": "2697:7:19",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr_$",
+                                "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr_$",
                                 "typeString": "function (address) view returns (struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory)"
                               }
                             },
@@ -7754,7 +7754,7 @@
                             "src": "2697:22:19",
                             "tryCall": false,
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                              "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                               "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                             }
                           },
@@ -7765,7 +7765,7 @@
                           "lValueRequested": false,
                           "memberName": "setBy",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 5492,
+                          "referencedDeclaration": 5505,
                           "src": "2697:28:19",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -7917,7 +7917,7 @@
                         "referencedDeclaration": 3576,
                         "src": "2816:18:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5493_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ERC721CollectionRoyalty_$5506_storage_$",
                           "typeString": "mapping(address => struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref)"
                         }
                       },
@@ -7941,7 +7941,7 @@
                       "nodeType": "IndexAccess",
                       "src": "2816:33:19",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                       }
                     },
@@ -8019,10 +8019,10 @@
                         "name": "ERC721CollectionRoyalty",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5493,
+                        "referencedDeclaration": 5506,
                         "src": "2852:23:19",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_ERC721CollectionRoyalty_$5506_storage_ptr_$",
                           "typeString": "type(struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage pointer)"
                         }
                       },
@@ -8041,13 +8041,13 @@
                       "src": "2852:141:19",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                        "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_memory_ptr",
                         "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty memory"
                       }
                     },
                     "src": "2816:177:19",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage",
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5506_storage",
                       "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty storage ref"
                     }
                   },
@@ -8114,7 +8114,7 @@
                       "name": "SetRoyalty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5501,
+                      "referencedDeclaration": 5514,
                       "src": "3009:10:19",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -8403,7 +8403,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-10-26T05:07:32.627Z",
+  "updatedAt": "2021-10-26T06:26:55.234Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

@@ -238,6 +238,11 @@ interface INFTKEYMarketplaceV2 {
     function actionTimeOutRangeMax() external view returns (uint256);
 
     /**
+     * @dev Payment token address
+     */
+    function paymentToken() external view returns (address);
+
+    /**
      * @dev Service fee
      * @return fee fraction based on 1000
      */

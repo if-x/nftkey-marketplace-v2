@@ -681,6 +681,13 @@ contract NFTKEYMarketplaceV2 is
     }
 
     /**
+     * @dev See {INFTKEYMarketplaceV2-paymentToken}.
+     */
+    function paymentToken() external view override returns (address) {
+        return address(_paymentToken);
+    }
+
+    /**
      * @dev Change minimum listing and bid time range
      */
     function changeMinActionTimeLimit(uint256 timeInSec) external onlyOwner {

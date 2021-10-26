@@ -34,6 +34,6 @@ module.exports = async (deployer, network
             gasPrice,
         });
         const marketplaceV2 = await NFTKEYMarketplaceV2.deployed();
-        console.log(`NFTKEYMarketplaceV2 for Spunks deployed at ${marketplaceV2.address} in network: ${network}.`);
+        console.log(`NFTKEYMarketplaceV2 deployed at ${marketplaceV2.address} in network: ${network}.`);
     }
 };

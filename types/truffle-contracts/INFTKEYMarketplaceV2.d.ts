@@ -406,6 +406,11 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   actionTimeOutRangeMax(txDetails?: Truffle.TransactionDetails): Promise<BN>;
 
   /**
+   * Payment token address
+   */
+  paymentToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
+
+  /**
    * Service fee
    */
   serviceFee(txDetails?: Truffle.TransactionDetails): Promise<BN>;
@@ -718,6 +723,11 @@ export interface INFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
      * Surface maximum listing and bid time range
      */
     actionTimeOutRangeMax(txDetails?: Truffle.TransactionDetails): Promise<BN>;
+
+    /**
+     * Payment token address
+     */
+    paymentToken(txDetails?: Truffle.TransactionDetails): Promise<string>;
 
     /**
      * Service fee
