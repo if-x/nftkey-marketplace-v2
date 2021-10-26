@@ -1,0 +1,1060 @@
+{
+  "contractName": "INFTKEYMarketplaceRoyalty",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "erc721Address",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "feeFraction",
+          "type": "uint256"
+        }
+      ],
+      "name": "SetRoyalty",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "erc721Address",
+          "type": "address"
+        }
+      ],
+      "name": "royalty",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "feeFraction",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "setBy",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "erc721Address",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "feeFraction",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRoyalty",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"erc721Address\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeFraction\",\"type\":\"uint256\"}],\"name\":\"SetRoyalty\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc721Address\",\"type\":\"address\"}],\"name\":\"royalty\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeFraction\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"setBy\",\"type\":\"address\"}],\"internalType\":\"struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"erc721Address\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeFraction\",\"type\":\"uint256\"}],\"name\":\"setRoyalty\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"royalty(address)\":{\"details\":\"Royalty fee\",\"params\":{\"erc721Address\":\"to read royalty\"},\"returns\":{\"_0\":\"royalty information\"}},\"setRoyalty(address,address,uint256)\":{\"details\":\"Royalty fee\",\"params\":{\"erc721Address\":\"to read royalty\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interface/INFTKEYMarketplaceRoyalty.sol\":\"INFTKEYMarketplaceRoyalty\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":999999},\"remappings\":[]},\"sources\":{\"project:/contracts/interface/INFTKEYMarketplaceRoyalty.sol\":{\"keccak256\":\"0x7c3e08a4a5602f637c4a5a89d3a0cca993de8e62f59ccb7e961029970ef91936\",\"license\":\"AGPL-3.0-or-later\",\"urls\":[\"bzz-raw://628541496a76034eda5197c646ea34ed4a206e801d925a2479dc04538b9c3e55\",\"dweb:/ipfs/QmQ2WDBiDPr94S8NKb9GhvqhPXrayikZsYQed3iGYJSpzJ\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: AGPL-3.0-or-later\n\npragma solidity =0.8.9;\npragma abicoder v2;\n\ninterface INFTKEYMarketplaceRoyalty {\n    struct ERC721CollectionRoyalty {\n        address recipient;\n        uint256 feeFraction;\n        address setBy;\n    }\n\n    // Who can set: ERC721 owner and NFTKEY owner\n    event SetRoyalty(\n        address indexed erc721Address,\n        address indexed recipient,\n        uint256 feeFraction\n    );\n\n    /**\n     * @dev Royalty fee\n     * @param erc721Address to read royalty\n     * @return royalty information\n     */\n    function royalty(address erc721Address)\n        external\n        view\n        returns (ERC721CollectionRoyalty memory);\n\n    /**\n     * @dev Royalty fee\n     * @param erc721Address to read royalty\n     */\n    function setRoyalty(\n        address erc721Address,\n        address recipient,\n        uint256 feeFraction\n    ) external;\n}\n",
+  "sourcePath": "/Users/fayexue/projects/nftkey-marketplace-v2/contracts/interface/INFTKEYMarketplaceRoyalty.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interface/INFTKEYMarketplaceRoyalty.sol",
+    "exportedSymbols": {
+      "INFTKEYMarketplaceRoyalty": [
+        5521
+      ]
+    },
+    "id": 5522,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5485,
+        "literals": [
+          "solidity",
+          "=",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "47:23:23"
+      },
+      {
+        "id": 5486,
+        "literals": [
+          "abicoder",
+          "v2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "71:19:23"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "INFTKEYMarketplaceRoyalty",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 5521,
+        "linearizedBaseContracts": [
+          5521
+        ],
+        "name": "INFTKEYMarketplaceRoyalty",
+        "nameLocation": "102:25:23",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+            "id": 5493,
+            "members": [
+              {
+                "constant": false,
+                "id": 5488,
+                "mutability": "mutable",
+                "name": "recipient",
+                "nameLocation": "183:9:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "175:17:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5487,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "175:7:23",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5490,
+                "mutability": "mutable",
+                "name": "feeFraction",
+                "nameLocation": "210:11:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "202:19:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5489,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "202:7:23",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5492,
+                "mutability": "mutable",
+                "name": "setBy",
+                "nameLocation": "239:5:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "231:13:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5491,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "231:7:23",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ERC721CollectionRoyalty",
+            "nameLocation": "141:23:23",
+            "nodeType": "StructDefinition",
+            "scope": 5521,
+            "src": "134:117:23",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 5501,
+            "name": "SetRoyalty",
+            "nameLocation": "313:10:23",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5500,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5495,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "349:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "333:29:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5494,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "333:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5497,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "388:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "372:25:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5496,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "372:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5499,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "feeFraction",
+                  "nameLocation": "415:11:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "407:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5498,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "323:109:23"
+            },
+            "src": "307:126:23"
+          },
+          {
+            "documentation": {
+              "id": 5502,
+              "nodeType": "StructuredDocumentation",
+              "src": "439:114:23",
+              "text": " @dev Royalty fee\n @param erc721Address to read royalty\n @return royalty information"
+            },
+            "functionSelector": "861b69d6",
+            "id": 5510,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "royalty",
+            "nameLocation": "567:7:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5504,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "583:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5510,
+                  "src": "575:21:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5503,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "575:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "574:23:23"
+            },
+            "returnParameters": {
+              "id": 5509,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5508,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5510,
+                  "src": "645:30:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                    "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
+                  },
+                  "typeName": {
+                    "id": 5507,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 5506,
+                      "name": "ERC721CollectionRoyalty",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 5493,
+                      "src": "645:23:23"
+                    },
+                    "referencedDeclaration": 5493,
+                    "src": "645:23:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                      "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "644:32:23"
+            },
+            "scope": 5521,
+            "src": "558:119:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5511,
+              "nodeType": "StructuredDocumentation",
+              "src": "683:79:23",
+              "text": " @dev Royalty fee\n @param erc721Address to read royalty"
+            },
+            "functionSelector": "55c338aa",
+            "id": 5520,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setRoyalty",
+            "nameLocation": "776:10:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5518,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5513,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "804:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "796:21:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5512,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5515,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "835:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "827:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5514,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "827:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5517,
+                  "mutability": "mutable",
+                  "name": "feeFraction",
+                  "nameLocation": "862:11:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "854:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5516,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "854:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "786:93:23"
+            },
+            "returnParameters": {
+              "id": 5519,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "888:0:23"
+            },
+            "scope": 5521,
+            "src": "767:122:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5522,
+        "src": "92:799:23",
+        "usedErrors": []
+      }
+    ],
+    "src": "47:845:23"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interface/INFTKEYMarketplaceRoyalty.sol",
+    "exportedSymbols": {
+      "INFTKEYMarketplaceRoyalty": [
+        5521
+      ]
+    },
+    "id": 5522,
+    "license": "AGPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5485,
+        "literals": [
+          "solidity",
+          "=",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "47:23:23"
+      },
+      {
+        "id": 5486,
+        "literals": [
+          "abicoder",
+          "v2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "71:19:23"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "INFTKEYMarketplaceRoyalty",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 5521,
+        "linearizedBaseContracts": [
+          5521
+        ],
+        "name": "INFTKEYMarketplaceRoyalty",
+        "nameLocation": "102:25:23",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty",
+            "id": 5493,
+            "members": [
+              {
+                "constant": false,
+                "id": 5488,
+                "mutability": "mutable",
+                "name": "recipient",
+                "nameLocation": "183:9:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "175:17:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5487,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "175:7:23",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5490,
+                "mutability": "mutable",
+                "name": "feeFraction",
+                "nameLocation": "210:11:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "202:19:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 5489,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "202:7:23",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5492,
+                "mutability": "mutable",
+                "name": "setBy",
+                "nameLocation": "239:5:23",
+                "nodeType": "VariableDeclaration",
+                "scope": 5493,
+                "src": "231:13:23",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 5491,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "231:7:23",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ERC721CollectionRoyalty",
+            "nameLocation": "141:23:23",
+            "nodeType": "StructDefinition",
+            "scope": 5521,
+            "src": "134:117:23",
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 5501,
+            "name": "SetRoyalty",
+            "nameLocation": "313:10:23",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 5500,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5495,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "349:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "333:29:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5494,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "333:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5497,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "388:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "372:25:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5496,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "372:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5499,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "feeFraction",
+                  "nameLocation": "415:11:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5501,
+                  "src": "407:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5498,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "407:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "323:109:23"
+            },
+            "src": "307:126:23"
+          },
+          {
+            "documentation": {
+              "id": 5502,
+              "nodeType": "StructuredDocumentation",
+              "src": "439:114:23",
+              "text": " @dev Royalty fee\n @param erc721Address to read royalty\n @return royalty information"
+            },
+            "functionSelector": "861b69d6",
+            "id": 5510,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "royalty",
+            "nameLocation": "567:7:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5504,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "583:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5510,
+                  "src": "575:21:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5503,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "575:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "574:23:23"
+            },
+            "returnParameters": {
+              "id": 5509,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5508,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5510,
+                  "src": "645:30:23",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_memory_ptr",
+                    "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
+                  },
+                  "typeName": {
+                    "id": 5507,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 5506,
+                      "name": "ERC721CollectionRoyalty",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 5493,
+                      "src": "645:23:23"
+                    },
+                    "referencedDeclaration": 5493,
+                    "src": "645:23:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ERC721CollectionRoyalty_$5493_storage_ptr",
+                      "typeString": "struct INFTKEYMarketplaceRoyalty.ERC721CollectionRoyalty"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "644:32:23"
+            },
+            "scope": 5521,
+            "src": "558:119:23",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 5511,
+              "nodeType": "StructuredDocumentation",
+              "src": "683:79:23",
+              "text": " @dev Royalty fee\n @param erc721Address to read royalty"
+            },
+            "functionSelector": "55c338aa",
+            "id": 5520,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setRoyalty",
+            "nameLocation": "776:10:23",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5518,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5513,
+                  "mutability": "mutable",
+                  "name": "erc721Address",
+                  "nameLocation": "804:13:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "796:21:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5512,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "796:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5515,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "835:9:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "827:17:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 5514,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "827:7:23",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5517,
+                  "mutability": "mutable",
+                  "name": "feeFraction",
+                  "nameLocation": "862:11:23",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5520,
+                  "src": "854:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5516,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "854:7:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "786:93:23"
+            },
+            "returnParameters": {
+              "id": 5519,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "888:0:23"
+            },
+            "scope": 5521,
+            "src": "767:122:23",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5522,
+        "src": "92:799:23",
+        "usedErrors": []
+      }
+    ],
+    "src": "47:845:23"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-10-26T05:07:32.654Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "royalty(address)": {
+        "details": "Royalty fee",
+        "params": {
+          "erc721Address": "to read royalty"
+        },
+        "returns": {
+          "_0": "royalty information"
+        }
+      },
+      "setRoyalty(address,address,uint256)": {
+        "details": "Royalty fee",
+        "params": {
+          "erc721Address": "to read royalty"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

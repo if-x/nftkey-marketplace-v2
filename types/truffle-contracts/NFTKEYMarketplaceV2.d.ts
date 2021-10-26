@@ -255,7 +255,7 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
   };
 
   /**
-   * See {INFTKEYMarketplaceV2-listToken}. People can only list if listing is allowed The timestamp set needs to be in the allowed range Only token owner can list token Price must be higher than 0 This contract must be approved to transfer this token
+   * See {INFTKEYMarketplaceV2-listToken}. The timestamp set needs to be in the allowed range Listing must be valid
    */
   listToken: {
     (
@@ -752,7 +752,7 @@ export interface NFTKEYMarketplaceV2Instance extends Truffle.ContractInstance {
     };
 
     /**
-     * See {INFTKEYMarketplaceV2-listToken}. People can only list if listing is allowed The timestamp set needs to be in the allowed range Only token owner can list token Price must be higher than 0 This contract must be approved to transfer this token
+     * See {INFTKEYMarketplaceV2-listToken}. The timestamp set needs to be in the allowed range Listing must be valid
      */
     listToken: {
       (
