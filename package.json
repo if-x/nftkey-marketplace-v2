@@ -13,6 +13,7 @@
     "etherscan-verify": "truffle run verify NFTKEYMarketplaceV2",
     "etherscan-verify:bsc": "yarn etherscan-verify --network bsc",
     "etherscan-verify:bsctestnet": "yarn etherscan-verify --network bsctestnet",
+    "etherscan-verify:ftm": "yarn etherscan-verify --network ftm",
     "etherscan-verify:main": "yarn etherscan-verify --network main",
     "etherscan-verify:ropsten": "yarn etherscan-verify --network ropsten",
     "generate-types": "typechain --target=truffle-v5 'build/contracts/*.json'",
