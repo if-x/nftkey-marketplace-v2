@@ -9,6 +9,7 @@ const infuraKey = process.env.INFURA_PROJECT_ID;
 const etherscanApiKey = process.env.ETHERSCAN_API_KEY;
 const bscscanApiKey = process.env.BSC_SCAN_API_KEY;
 const ftmscanApiKey = process.env.FTM_SCAN_API_KEY;
+const snowtraceApiKey = process.env.SNOWTRACE_API_KEY;
 const fromAddress = process.env.FROM_ADDRESS;
 
 module.exports = {
@@ -105,5 +106,6 @@ module.exports = {
     etherscan: etherscanApiKey,
     bscscan: bscscanApiKey,
     ftmscan: ftmscanApiKey,
+    snowtrace: snowtraceApiKey,
   },
 };
